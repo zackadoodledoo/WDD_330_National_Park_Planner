@@ -1,5 +1,7 @@
 // parks.js file
 
+import { CONFIG } from "../config";
+
 const BASE = "https://developer.nps.gov/api/v1";
 
 export async function searchParks({ apiKey, q = "", stateCode = "", limit = 12, start = 0 }) {

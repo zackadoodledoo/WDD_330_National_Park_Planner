@@ -1,5 +1,7 @@
 // weather api js
 
+import { CONFIG } from "../config";
+
 export async function getForecast({ apiKey, lat, lon }) {
   const url = new URL("https://api.openweathermap.org/data/2.5/forecast");
   url.searchParams.set("lat", lat);

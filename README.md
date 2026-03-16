@@ -23,6 +23,7 @@ A single-page application that helps users discover National Parks, view park de
 1. Clone the repo
 2. Run a local server (Live Server or similar)
 3. Add API keys to `config.js`
+4. Create `src/config.js` using `config.example.js` and add your API keys.
 
 ## Author
 Zackary Sinclair
