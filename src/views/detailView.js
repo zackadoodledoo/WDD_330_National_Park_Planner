@@ -1,0 +1,1 @@
+// detailView.js file
