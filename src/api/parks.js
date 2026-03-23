@@ -1,4 +1,3 @@
-// parks.js file
 const BASE = "https://developer.nps.gov/api/v1";
 
 export async function searchParks({

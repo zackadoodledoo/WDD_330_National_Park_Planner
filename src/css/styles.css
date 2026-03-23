@@ -90,6 +90,8 @@ a:hover {
   border-radius: 16px;
   padding: 20px;
   border: 1px solid var(--border);
+  position: relative;
+  overflow: visible;
 }
 
 /* =========================
@@ -97,19 +99,28 @@ a:hover {
 ========================= */
 .search {
   display: grid;
-  grid-template-columns: 1fr 160px 120px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 12px;
-  margin: 16px 0;
+  align-items: center;
+  width: 100%;
 }
 
+/* Grouped controls inside the search form */
+.search .controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Ensure inputs and selects never overflow their grid cell */
 .search input,
-.search select {
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  font-family: inherit;
+.search select,
+.search button,
+.search #maxMiles {
+  width: 100%;
+  min-width: 0; /* critical to allow shrinking inside grid */
 }
-
 /* =========================
    Buttons
 ========================= */
@@ -153,6 +164,9 @@ a:hover {
   overflow: hidden;
   border: 1px solid var(--border);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .card:hover {
@@ -174,6 +188,14 @@ a:hover {
 .card-body {
   padding: 14px;
 }
+
+.card-body > div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
 
 .card-body h3 {
   font-size: 1.1rem;
@@ -289,4 +311,73 @@ a:hover {
   border: none;
   border-radius: 12px;
   font-size: 1.1rem;
+}
+
+
+/* Planner specific */
+#plannerForm input[readonly] {
+  background: #f7f7f7;
+  border: 1px solid var(--border);
+}
+
+#plannerForm label {
+  display:block;
+  font-size:0.9rem;
+  margin-bottom:6px;
+}
+
+#plannerForm textarea {
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  font-family:inherit;
+}
+
+.trip-actions .btn {
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.edit-area input,
+.edit-area textarea,
+.edit-area select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  width: 100%;
+  font-family: inherit;
+}
+
+
+/* distance CSS */
+
+.distance-badge {
+  background: var(--orange);
+  color: white;
+  padding: 6px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-left: 8px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+.card-body > div { gap: 8px; display:flex; align-items: flex-start; justify-content:space-between; }
+
+
+/* Small screens: stack controls vertically for readability */
+@media (max-width: 720px) {
+  .search {
+    grid-template-columns: 1fr;
+  }
+  .search .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .distance-badge {
+    margin-left: 0;
+    margin-top: 6px;
+  }
 }
