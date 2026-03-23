@@ -1,0 +1,192 @@
+/* =========================
+   Design Tokens
+========================= */
+:root {
+  --green: #2f6b3f;
+  --green-dark: #245531;
+  --orange: #e07a2f;
+  --tan: #f3efe6;
+  --black: #1b1b1b;
+  --muted: #5f5f5f;
+  --card: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   Base Styles
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Karla", system-ui, sans-serif;
+  background: var(--tan);
+  color: var(--black);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+p {
+  margin: 0.5em 0;
+}
+
+a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   Header / Navigation
+========================= */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.nav a {
+  margin-left: 16px;
+  font-weight: 500;
+}
+
+/* =========================
+   Layout
+========================= */
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.panel {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid var(--border);
+}
+
+/* =========================
+   Search Form
+========================= */
+.search {
+  display: grid;
+  grid-template-columns: 1fr 160px 120px;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.search input,
+.search select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-family: inherit;
+}
+
+/* =========================
+   Buttons
+========================= */
+.btn {
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+}
+
+.btn.secondary {
+  background: var(--black);
+}
+
+.btn.secondary:hover {
+  background: #000;
+}
+
+/* =========================
+   Cards / Grid
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.img-placeholder {
+  height: 150px;
+  background: #ddd;
+}
+
+.card-body {
+  padding: 14px;
+}
+
+.card-body h3 {
+  font-size: 1.1rem;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* =========================
+   Utility
+========================= */
+.muted {
+  color: var(--muted);
+}
