@@ -4,6 +4,7 @@ import { renderDetail } from "./views/detailView.js";
 import { renderPlanner } from "./views/plannerView.js";
 import { renderSaved } from "./views/savedView.js";
 
+
 const app = document.querySelector("#app");
 
 async function render() {

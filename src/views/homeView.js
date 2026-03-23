@@ -59,8 +59,8 @@ export async function renderHome(root) {
             <div class="card-body">
               <h3>${park.fullName}</h3>
               <p>${park.description?.slice(0, 120) || ""}...</p>
-              <a class="btn" href="#/park?code=${park.parkCode}">
-                View Details
+              <a class="btn" href="#/park?code=${encodeURIComponent(park.parkCode)}">View Details</a>
+                
               </a>
             </div>
           </article>

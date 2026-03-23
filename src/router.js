@@ -1,8 +1,14 @@
-// router.js
-
 export function parseRoute() {
-    const hash = window.location.hash || "#/";
-    const [path, queryString] = hash.slice(1).split("?");
-    const params = new URLSearchParams(queryString || "");
-    return { path: path || "/", params };
+  // location.hash like "#/park?code=abli" or "" -> "/"
+  const raw = (location.hash || "#/").slice(1); // remove leading '#'
+  const [pathPart, queryString] = raw.split("?");
+  const path = pathPart || "/";
+  const params = {};
+
+  if (queryString) {
+    const sp = new URLSearchParams(queryString);
+    for (const [k, v] of sp.entries()) params[k] = v;
+  }
+
+  return { path, params };
 }
